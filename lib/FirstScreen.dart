@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:laundromatic/form.dart';
 
 import './wash.dart';
 
@@ -14,7 +15,7 @@ class FirstScreen extends StatelessWidget {
         backgroundColor: Colors.amber,
       ),
       body: Column(children:<Widget> [
-        wash(),
+        wash('Name1', 'Phone1', 'Time1', 'Room1'),
         Padding(padding: EdgeInsets.all(10)),
 
       ],)

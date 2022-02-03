@@ -8,7 +8,13 @@ class wash extends StatefulWidget {
   @override  
   washstate createState() {  
     return washstate();  
-  }  
+  } 
+  var name;
+  var phone;
+  var time;
+  var room;
+  wash(this.name,this.phone,this.time,this.room, {Key? key}) : super(key: key);
+
 }  
 
 class washstate extends State<wash>{
@@ -32,7 +38,7 @@ class washstate extends State<wash>{
           ),
         ],
       ),
-      margin: EdgeInsets.only(top:40, left: sidealign, right: 200, bottom:40), 
+      margin: EdgeInsets.only(top:40, left: sidealign, right: 40, bottom:40), 
       width: double.infinity,
       child: Column (  
         crossAxisAlignment: CrossAxisAlignment.start,  
@@ -45,7 +51,7 @@ class washstate extends State<wash>{
           ),
           
           Container(
-          child:  Text('Name : John Doe' ),
+          child:  Text('Name1'),
           margin: EdgeInsets.all(10),
           ),
           Container(
@@ -57,28 +63,37 @@ class washstate extends State<wash>{
           margin: EdgeInsets.all(10),
           ),
           Container(
-            margin: EdgeInsets.all(10),
-            child: ElevatedButton(
-              child: Text("add me"),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SecondScreen()),
-                );
-              },
-            ),
+          child: Text('Phone number : +91-1234567890'),
+          margin: EdgeInsets.all(10),
           ),
-          Container(
-            margin: EdgeInsets.all(10),
-            child: ElevatedButton(
-                child: Text('notify me'),
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Notification Set!')),
-                  );
-                }
-            )
-          ),
+          ButtonBar(
+            alignment: MainAxisAlignment.center,
+            children: <Widget>[
+              ButtonTheme(
+                minWidth: 80,
+                child: ElevatedButton(
+                  child: Text("add"),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SecondScreen()),
+                    );
+                  },
+                ),
+              ),
+              ButtonTheme(
+                minWidth: 80,
+                child: ElevatedButton(
+                    child: Text('notify'),
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text('Notification Set!')),
+                      );
+                    }
+                )
+              ),
+            ],
+          )
         ]
       ),
     );

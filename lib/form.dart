@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:laundromatic/FirstScreen.dart';
+import 'package:laundromatic/wash.dart';
+
+import './main.dart';
+import './SecondScreen.dart';
 
 class form extends StatefulWidget {  
   @override  
@@ -9,8 +14,13 @@ class form extends StatefulWidget {
 
 class formstate extends State<form> {  
   final _formKey = GlobalKey<FormState>();  
+  final name = TextEditingController();
+  final room = TextEditingController();
+  final time = TextEditingController();
+  final phone = TextEditingController();
   
-  @override  
+
+  @override 
   Widget build(BuildContext context) {  
     return Form(  
       key: _formKey,  
@@ -18,34 +28,86 @@ class formstate extends State<form> {
         crossAxisAlignment: CrossAxisAlignment.start,  
         children: <Widget>[  
           TextFormField(  
+            onSaved: (newValue) => name.text = newValue!,
+            controller: name,
             decoration: const InputDecoration(  
               icon: Icon(Icons.person),  
               hintText: 'Enter your name',  
               labelText: 'Name',  
-            ),  
+            ),
+            validator: (value) {  
+              if (value!.isEmpty) {  
+                return 'Please enter your name';  
+              }  
+              return null;  
+            },  
           ),  
           TextFormField(  
+            onSaved: (newValue) => room.text = newValue!,
+            controller: room,
             decoration: const InputDecoration(  
               icon: Icon(Icons.house),  
               hintText: 'Enter your room number',  
               labelText: 'Room No.',  
             ),  
+            validator: (value) {  
+              if (value!.isEmpty) {  
+                return 'Please room number';  
+              }  
+              return null;  
+            },
           ),  
           TextFormField(  
+            onSaved: (newValue) => time.text = newValue!,
+            controller: time,
             decoration: const InputDecoration(  
             icon: Icon(Icons.timer),  
             hintText: 'Enter the time left',  
             labelText: 'Time Left',  
-            ),  
-           ),  
+            ),
+            validator: (value) {  
+              if (value!.isEmpty) {  
+                return 'Please enter time left';  
+              }  
+              return null;  
+            },
+            keyboardType: TextInputType.number,   
+           ), 
+           TextFormField(  
+            onSaved: (newValue) => phone.text = newValue!,
+            controller: time,
+            decoration: const InputDecoration(  
+            icon: Icon(Icons.phone),
+            hintText: 'Enter your phone number',  
+            labelText: 'phone number',  
+            ),
+            validator: (value) {  
+              if (value!.isEmpty) {  
+                return 'Please enter phone number';  
+              }  
+              return null;  
+            }, 
+            keyboardType: TextInputType.number, 
+           ), 
             Container(
               margin: EdgeInsets.all(10),
               child: ElevatedButton(  
                 child: const Text('Submit'),  
-                  onPressed: null,  
+                  onPressed:() {  
+                  if (_formKey.currentState!.validate()) {  
+                    Scaffold.of(context).showSnackBar(SnackBar(content: Text('Thank you for your submission')));
+                  }
+                }, 
               )),  
         ],  
       ),  
     );  
   }  
+}
+
+class details {
+  var name;
+  var room;
+  var time;
+  details(this.name, this.room, this.time);  
 }

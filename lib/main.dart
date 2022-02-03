@@ -20,13 +20,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-
-
- 
-
-
-
 class details {
   String name;
   String room;
