@@ -6,19 +6,25 @@ import 'package:laundromatic/form.dart';
 import './wash.dart';
 
 class FirstScreen extends StatelessWidget {
-
+  var name;
+  var room;
+  var phone;
+  var time;
+  //constructor
+  FirstScreen({this.name, this.room, this.phone, this.time});
   @override
-  Widget build (BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("LaundroMatic"),
-        backgroundColor: Colors.amber,
-      ),
-      body: Column(children:<Widget> [
-        wash('Name1', 'Phone1', 'Time1', 'Room1'),
-        Padding(padding: EdgeInsets.all(10)),
-
-      ],)
-    );
+        appBar: AppBar(
+          title: Text("LaundroMatic"),
+          backgroundColor: Colors.amber,
+        ),
+        body: SingleChildScrollView(
+            child: Column(
+          children: <Widget>[
+            wash(name, phone, time, room),
+            wash('Name2', 'Phone2', 69 ,420),
+          ],
+        )));
   }
 }

@@ -10,8 +10,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  var name = 'yas';
+  var room =  '124';
+  var phone = 69420;
+  var time = 69;
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

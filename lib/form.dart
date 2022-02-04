@@ -95,6 +95,7 @@ class formstate extends State<form> {
                 child: const Text('Submit'),  
                   onPressed:() {  
                   if (_formKey.currentState!.validate()) {  
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => FirstScreen(name: name.text, room: room.text, time: time.text, phone: phone.text)));
                     Scaffold.of(context).showSnackBar(SnackBar(content: Text('Thank you for your submission')));
                   }
                 }, 

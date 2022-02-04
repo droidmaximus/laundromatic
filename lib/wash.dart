@@ -4,21 +4,13 @@ import 'package:flutter/material.dart';
 
 import './SecondScreen.dart';
 
-class wash extends StatefulWidget {  
-  @override  
-  washstate createState() {  
-    return washstate();  
-  } 
-  var name;
-  var phone;
-  var time;
-  var room;
-  wash(this.name,this.phone,this.time,this.room, {Key? key}) : super(key: key);
-
-}  
-
-class washstate extends State<wash>{
+class wash extends StatelessWidget {
   double sidealign = 10;
+  var name = 'yas';
+  var room =  '124';
+  var phone = 69420;
+  var time = 69;
+  wash(this.name, this.room, this.phone, this.time);
   final String stopped = 'assets/images/washing-machine-static.png';
   final String running = 'assets/images/washing-machine-working.gif';
   Widget build(BuildContext context) { 
@@ -44,26 +36,32 @@ class washstate extends State<wash>{
         crossAxisAlignment: CrossAxisAlignment.start,  
         children: <Widget>[  
           Container(
-            width: 200,
-            height: 200,
+            width: 100,
+            height: 100,
             margin: EdgeInsets.all(10),
             child: Image.asset(stopped),
           ),
           
           Container(
-          child:  Text('Name1'),
-          margin: EdgeInsets.all(10),
+            child: Row(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(left: 10),
+                  child: Text(name),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 10),
+                  child: Text(room),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 10),
+                  child: Text(phone.toString()),
+                )
+              ],
+            ),
           ),
           Container(
-          child: Text('Room No. : 101'),
-          margin: EdgeInsets.all(10),
-          ),
-          Container(
-          child: Text('Time left : 10 minutes'),
-          margin: EdgeInsets.all(10),
-          ),
-          Container(
-          child: Text('Phone number : +91-1234567890'),
+          child: Text(time.toString()),
           margin: EdgeInsets.all(10),
           ),
           ButtonBar(
