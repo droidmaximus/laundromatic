@@ -2,30 +2,42 @@
 
 import 'package:flutter/material.dart';
 
-import './FirstScreen.dart';
+import './wash.dart';
 
 
 void main() {
-  runApp(MyApp()); 
+  var name;
+  var room;
+  var phone;
+  var time;
+  runApp(MyApp(name,room,phone,time)); 
 }
 
 class MyApp extends StatelessWidget {
-  var name = 'yas';
-  var room =  '124';
-  var phone = 69420;
-  var time = 69;
+
+  var name;
+  var room;
+  var phone;
+  var time;
   
+  MyApp(this.name,this.room,this.phone,this.time);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: FirstScreen(),
+      home: Scaffold(
+        resizeToAvoidBottomInset: false,
+      
+        appBar: AppBar(
+          title: Text("LaundroMatic"),
+          backgroundColor: Colors.amber,
+        ),
+        body: SingleChildScrollView(
+            child: Column(
+          children: <Widget>[
+            Wash(name: '12',room: '12',phone: '12',time: '12'),
+          ],
+        )))
     );
   }
 }
 
-class details {
-  String name;
-  String room;
-  int time;
-  details(this.name, this.room, this.time);  
-}

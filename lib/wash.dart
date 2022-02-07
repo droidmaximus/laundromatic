@@ -1,16 +1,18 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-
 import './SecondScreen.dart';
 
-class wash extends StatelessWidget {
+class Wash extends StatelessWidget {
+
+
   double sidealign = 10;
-  var name = 'yas';
-  var room =  '124';
-  var phone = 69420;
-  var time = 69;
-  wash(this.name, this.room, this.phone, this.time);
+  String? name = 'yas';
+  String? room =  '124';
+  String? phone = '69420';
+  String? time = '69';
+  Wash({this.name, this.room,this.phone,this.time,});
+  // Wash(this.name, this.room, this.phone, this.time, {Key? key}) : super(key: key);
   final String stopped = 'assets/images/washing-machine-static.png';
   final String running = 'assets/images/washing-machine-working.gif';
   Widget build(BuildContext context) { 
@@ -31,7 +33,8 @@ class wash extends StatelessWidget {
         ],
       ),
       margin: EdgeInsets.only(top:40, left: sidealign, right: 40, bottom:40), 
-      width: double.infinity,
+      width: 500,
+      
       child: Column (  
         crossAxisAlignment: CrossAxisAlignment.start,  
         children: <Widget>[  
@@ -43,27 +46,29 @@ class wash extends StatelessWidget {
           ),
           
           Container(
+            margin: EdgeInsets.only(left: sidealign, right: 40),
             child: Row(
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.only(left: 10),
-                  child: Text(name),
+                  
+
+                  child: Text(name!),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 10),
-                  child: Text(room),
+
+                  child: Text(room!),
                 ),
                 Container(
-                  margin: EdgeInsets.only(left: 10),
-                  child: Text(phone.toString()),
+
+                  child: Text(phone!),
                 )
               ],
             ),
           ),
-          Container(
-          child: Text(time.toString()),
-          margin: EdgeInsets.all(10),
-          ),
+          // Container(
+
+          // child: Text(time!),
+          // ),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
